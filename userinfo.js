@@ -1,0 +1,28 @@
+{
+   "userinfolist":[
+      {
+         "userid":"apple1",
+         "pass":"1234"
+      },
+      {
+         "userid":"apple2",
+         "pass":"1235"
+      },
+      {
+         "userid":"apple3",
+         "pass":"1236"
+      },
+      {
+         "userid":"apple4",
+         "pass":"1237"
+      },
+      {
+         "userid":"apple5",
+         "pass":"1238"
+      },
+      {
+         "userid":"apple6",
+         "pass":"1239"
+      }
+   ]
+}
