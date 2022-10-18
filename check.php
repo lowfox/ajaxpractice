@@ -141,7 +141,6 @@
             flock($fp, LOCK_UN[3]);
             fclose($fp);
         }
-
     }
 
     function write_date($key)
@@ -161,7 +160,5 @@
         else{
             fputs($fp, $json);
         }
-
-
     }
 ?>
