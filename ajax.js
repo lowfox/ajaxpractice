@@ -25,8 +25,18 @@ $(document).ready(function(){
             console.log('[responce msg: '+data_json["success_msg"]+ ']');
             switch(data_json["result"]){
                 case 'OK':
-                    location.href = "mypage.html";
+                    let msg;
                     //$("#result").text("ログイン成功");
+                    switch(data_json["success_msg"]){
+                        case 0:
+                            msg= "はじめまして！";
+                            break;
+                        case 1:
+                            msg = "今日も頑張りましょう";
+                            break;
+                        default : 
+                    }
+                    location.href = "mypage.html" + "?msg=" + encodeURIComponent(msg);
                     break;
                 case 'pass NG':
                     $("#result").text("パスワードが違います");
@@ -39,17 +49,6 @@ $(document).ready(function(){
                     break;
                 default:
                     $("#result").text("例外");
-            }
-            switch(data_json["success_msg"]){
-                case 0:
-                    $("#success_msg").text("はじめまして！");
-                    break;
-                case 1:
-                    $("#success_msg").text("今日も頑張りましょう");
-                    break;
-                default : 
-                    $("#success_msg").text("");
-
             }
         });
     });
