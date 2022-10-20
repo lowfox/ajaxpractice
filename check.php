@@ -149,7 +149,6 @@
         $date = date("Y/m/d-H:i:s");
         $userInfoArray[userinfolist][$key][latest_login_date] = $date;
         $json = json_encode($userInfoArray);
-
         
         // 読みこみだと成功
         $fp = fopen("./userinfo.js","w+");

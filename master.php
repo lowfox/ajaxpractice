@@ -5,12 +5,18 @@
 
 <?php
     $flg = 0;
+    $getdata =array();
+
     if( isset($_GET["btn"], $_GET["pg"]) )
     {
         $btn = $_GET["btn"];
         $pg = $_GET["pg"];
         $flg=1;
-    //var_dump($btn,$pg);
+        $getdata["pg"] = $pg; 
+        $getdata["btn"] = $btn; 
+        //javascript渡すためjsonに入れる
+
+    var_dump($btn,$pg);
     }
     else{
         var_dump("1get query empty");
@@ -18,6 +24,7 @@
     if(isset($_GET["data"]))
     {
         $data = $_GET["data"];
+        $getdata["data"] = $data;
         $dflg=1;
     }
     else{
@@ -37,11 +44,13 @@
             case "A" :
             case "B" :
             case "C" :
-                $title = $btn + "ページ";
+                $title = $btn."ページ";
                 break;
             default:
         }
     }    
+    
+    $getdata["pg"] = $getdata["btn"];
 
 
 ?>
@@ -60,15 +69,29 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#A_btn").click(function(){
-                    ToolRedirect(<?php echo $pg ?>, <?php echo $btn ?>, <?php if(isset($data)){echo $data;} ?>);
+                    <?php 
+                        $getdata["btn"] = "A";
+                        $getdata["data"] = "Aページへようこそ";
+                        $get_json = json_encode($getdata);
+                    ?>
+                    ToolRedirect(<?php echo $get_json; ?>);
                 })
                 $("#B_btn").click(function(){
-                    ToolRedirect(<?php echo $pg ?>, <?php echo $btn ?>, <?php if(isset($data)){echo $data;} ?>);
+                    <?php 
+                        $getdata["btn"] = "B";
+                        $getdata["data"] = "Bページへようこそ";
+                        $get_json = json_encode($getdata);
+                    ?>
+                    ToolRedirect(<?php echo $get_json; ?>);
                 })
                 $("#C_btn").click(function(){
-                    ToolRedirect(<?php echo $pg ?>, <?php echo $btn ?>, <?php if(isset($data)){echo $data;} ?>);
+                    <?php 
+                        $getdata["btn"] = "C";
+                        $getdata["data"] = "Cページへようこそ";
+                        $get_json = json_encode($getdata);
+                    ?>
+                    ToolRedirect(<?php echo $get_json; ?>);
                 })
-
             });
         </script>
     </body>
