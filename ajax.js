@@ -36,7 +36,7 @@ $(document).ready(function(){
                             break;
                         default : 
                     }
-                    location.href = "master.php" + "?pg=" + "form" + "?btn=" + "login" + "?data=" + encodeURIComponent(msg);
+                    location.href = "master.php?" + "pg=" + "form" + "&btn=" + "login" + "&data=" + encodeURIComponent(msg);
                     break;
                 case 'pass NG':
                     $("#result").text("パスワードが違います");
