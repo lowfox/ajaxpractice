@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     let query = location.search;
     let val = query.split("=");

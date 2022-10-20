@@ -20,18 +20,19 @@
 
         $flg=0;
     }
+    
 
     switch($pg){
         case "mypg" : 
             switch($btn){
                 case "A" : 
-                    header('a.html');
+                    header('page/a.html');
                     exit;
                 case "B" :
-                    header('b.html');
+                    header('page/b.html');
                     exit;
                 case "C" :
-                    header('c.html');
+                    header('page/c.html');
                     exit;
             } 
         case "A" :
