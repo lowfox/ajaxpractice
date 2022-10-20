@@ -1,4 +1,7 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
 
 <?php
     $flg = 0;
@@ -8,62 +11,41 @@
         $pg = $_GET["pg"];
         $flg=1;
     }
-    else if(isset($_POST["btn"], $_POST["pg"]) )
+    if(isset($_GET["data"]))
     {
-        $btn = $_POST["btn"];
-        $pg = $_POST["pg"];
-        $flg=1;
-    }
-    else{
-        $btn = null;
-        $pg = null;
-
-        $flg=0;
-    }
-    
-
-    switch($pg){
-        case "mypg" : 
-            switch($btn){
-                case "A" : 
-                    header('page/a.html');
-                    exit;
-                case "B" :
-                    header('page/b.html');
-                    exit;
-                case "C" :
-                    header('page/c.html');
-                    exit;
-            } 
-        case "A" :
-            switch($btn){
-                case "pre" : 
-                    header('mypage.html');
-                    exit;
-                case "B" :
-                    break;
-                case "C" :
-                    break;
-            } 
-        case "B" :
-            switch($btn){
-                case "mypg" : 
-                    break;
-                case "A" :
-                    break;
-                case "C" :
-                    break;
-            } 
-        case "C" :
-            switch($btn){
-                case "mypg" : 
-                    break;
-                case "A" :
-                    break;
-                case "B" :
-                    break;
-            } 
+        $data = $_GET["data"];
+        $dflg=1;
     }
 
-}
+    if($flg)
+    {
+        switch($pg){
+            case "form" :
+                if($btn == "login")
+                {
+                    $title = "マイページ";
+                }
+                break;
+            case "mypg" : 
+            case "A" :
+            case "B" :
+            case "C" :
+                $title = $btn + "ページ";
+                break;
+            default:
+        }
+    }    
+
+
 ?>
+        <meta charset="UTF-8">
+        <title><?php echo $title; ?></title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <p id="success_msg"></p>
+        <input type="button" id="A_btn" value="Aボタン"><br>
+        <input type="button" id="B_btn" value="Bボタン"><br>
+        <input type="button" id="C_btn" value="Cボタン"><br>
+    </body>
+</html>
